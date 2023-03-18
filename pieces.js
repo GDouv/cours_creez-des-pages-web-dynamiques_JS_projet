@@ -17,9 +17,9 @@ const categorieElement = document.createElement("p");
 categorieElement.innerText = article.categorie ?? "(aucune catégorie)";
 const descriptionElement = document.createElement("p");
 descriptionElement.innerText =
-    article.description ?? "(Pas de description pour le moment)";
+    article.description ?? "Pas de description pour le moment.";
 const disponibiliteElement = document.createElement("p");
-disponibiliteElement.innerText = article.disponibilite = true
+disponibiliteElement.innerText = article.disponibilite
     ? "En stock"
     : "Rupture de stock";
 
