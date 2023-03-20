@@ -59,7 +59,9 @@ boutonFiltrer.addEventListener("click", function () {
     console.log(piecesFiltrees);
 });
 
+//Correction Exercice
 const boutonDecroissant = document.querySelector(".btn-decroissant");
+
 boutonDecroissant.addEventListener("click", function () {
     const piecesOrdonnees = Array.from(pieces);
     piecesOrdonnees.sort(function (a, b) {
@@ -69,6 +71,7 @@ boutonDecroissant.addEventListener("click", function () {
 });
 
 const boutonNoDescription = document.querySelector(".btn-nodesc");
+
 boutonNoDescription.addEventListener("click", function () {
     const piecesFiltrees = pieces.filter(function (piece) {
         return piece.description;
@@ -82,6 +85,7 @@ for (let i = pieces.length - 1; i >= 0; i--) {
         noms.splice(i, 1);
     }
 }
+console.log(noms);
 
 //Création de la liste
 const abordablesElements = document.createElement("ul");
@@ -93,3 +97,24 @@ for (let i = 0; i < noms.length; i++) {
 }
 // Ajout de l'en-tête puis de la liste au bloc résultats filtres
 document.querySelector(".abordables").appendChild(abordablesElements);
+
+//Code Exercice
+const nomsDisponibles = pieces.map((piece) => piece.nom);
+const prixDisponibles = pieces.map((piece) => piece.prix);
+
+for (let i = pieces.length - 1; i >= 0; i--) {
+    if (pieces[i].disponibilite === false) {
+        nomsDisponibles.splice(i, 1);
+        prixDisponibles.splice(i, 1);
+    }
+}
+
+const disponiblesElement = document.createElement("ul");
+
+for (let i = 0; i < nomsDisponibles.length; i++) {
+    const nomElement = document.createElement("li");
+    nomElement.innerText = `${nomsDisponibles[i]} - ${prixDisponibles[i]} €`;
+    disponiblesElement.appendChild(nomElement);
+}
+
+document.querySelector(".disponibles").appendChild(disponiblesElement);
